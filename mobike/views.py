@@ -5,14 +5,17 @@ from .forms import formularioCliente, formularioArriendo
 
 
 
+
 def main (request):
     return render_to_response('mobike/main.html')
 
 
 
-def getCliente(request, ID_CLIENTE):
-    cliente = get_object_or_404(Cliente, pk=ID_CLIENTE)
-    return render(request, 'mobike/ficha-cliente.html', {'cliente': cliente})
+def getCliente(request):
+    cliente = Cliente.objects.all()
+    lista_cliente = Cliente.objects.filter(ID_CLIENTE = True)
+    context = {'cliente' : cliente}
+    return render(request, 'mobike/ficha-cliente.html', context)
 
 
 
@@ -54,3 +57,16 @@ def addArriendo(request):
         form = formularioArriendo()
     context = {'form':form}
     return render(request, 'mobike/registro-Arriendo.html',context)
+
+def editCliente(request, pk):
+    cliente = get_object_or_404(Cliente,pk=pk)
+    if request.method == 'GET':
+        form = formularioCliente(instance=cliente)
+        if form.is_valid():
+            cliente = form.save(commit=False)
+            cliente.save()
+            return redirect('getCliente')
+    else:
+        form = formularioCliente(instance=cliente)
+    return render(request, 'mobike/ficha-cliente.html', {'form' : form})        
+    
