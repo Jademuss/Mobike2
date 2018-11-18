@@ -1,0 +1,15 @@
+         
+                    {% for cliente in cliente %}
+                    
+                            <p>RUT : {{ cliente.RUT }}</p>
+                            <p>NOMBRE: {{ cliente.NOMBRE_COMPLETO }}</p>
+                            <p>EDAD: {{ cliente.EDAD }}</p>
+                            <p>MEDIO DE PAGO: {{ cliente.MEDIO_PAGO }}</p>
+                            <p>NUMERO CELULAR: {{ cliente.NUMERO_CELULAR }}</p>
+                            <p>EMAIL: {{ cliente.EMAIL }}</p>
+                            
+                            {% if user.is_superuser %}                            
+                            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'cliente-update' cliente.id %}" tabindex="14">Editar Usuario</a>
+                            {% endif %}                       
+                    {% endfor %}
+                 

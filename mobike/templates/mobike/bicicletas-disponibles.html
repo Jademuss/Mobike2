@@ -1,0 +1,11 @@
+<h1>Lista de Bicicletas Disponibles</h1>
+
+{% if lista_bicicleta_disponible %}
+    <ul>
+    {% for bicicleta in lista_bicicleta_disponible %}
+      <h2>ID: {{ bicicleta.ID_MOBIKE }} <br> Coordenadas: {{bicicleta.COORDENADAS}}</h2>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay bicicletas disponibles para uso.</p>
+{% endif %}
