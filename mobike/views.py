@@ -32,27 +32,14 @@ def addCliente(request):
             pk=cliente.pk
             #return render(request, 'mobike/ficha-cliente.html', )
             #return redirect('cliente/', pk)
-            return render_to_response('mobike/regis_edit.html')
+            return render_to_response('mobike/main.html')
     else:
         form = formularioCliente()
     context = {'form':form}
     return render(request, 'mobike/registro-Cliente.html',context)
 
-class ClienteUpdateView(LoginRequiredMixin, UpdateView):
-    model = Cliente
-    fields = ['RUT','NOMBRE_COMPLETO','EDAD','MEDIO_PAGO','NUMERO_CELULAR','EMAIL']
 
-    success_url = '/'
 
-def regis_edit(self, form):
-        form.instance.author = self.request.user
-        if self.request.user.has_perm('cliente.change_post'):
-            return super().regis_edit(form)
-def regis_edit(self, form):
-        form.instance.author = self.request.user
-        if self.request.user.has_perm('cliente.change_post'):
-            return super().regis_edit(form)
-=======
 def addArriendo(request):
     if request.method == 'POST':
         form = formularioArriendo( request.POST,request.FILES)

@@ -119,19 +119,15 @@ body {margin:0;font-family:Arial}
 </head>
 <body>
 
-<div class="topnav" id="myTopnav">
-  <a href="#home" class="active">
-      Logo
-  </a>
-  <a href="obtener-disponibles/">Listar Bicicletas</a>
-  <a href="agregarCliente/">Registrarse</a>
-  <a href="update/">Solicitar Bicicleta</a>
-  {% if user.is_superuser %}
-  <a href="update/">Perfil Cliente</a>
-  {% endif %}
-
-  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-</div>
+  <div class="topnav" id="myTopnav">
+    <a href="#home" class="active">
+        Logo
+    </a>
+    <a href="obtener-disponibles/">Listar Bicicletas</a>
+    <a href="agregarCliente/">Registrarse</a>
+    <a href="#about">Solicitar Bicicleta</a>
+    <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
 
 <div style="padding-left:16px">
   <h2>MOBIKE</h2>
